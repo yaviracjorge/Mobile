@@ -1,0 +1,70 @@
+<ion-menu contentId="main-content" menuId="tab-menu-menu">
+  <ion-header>
+    <ion-toolbar color="tertiary">
+      <ion-title>Página tabs y menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content class="ion-padding">
+    <ion-list>
+      <ion-item button routerLink="/tabs">
+        <ion-icon name="grid-outline" slot="start"></ion-icon>
+        <ion-label>Ir a Página Tabs</ion-label>
+      </ion-item>
+      <ion-item button routerLink="/menu">
+        <ion-icon name="menu-outline" slot="start"></ion-icon>
+        <ion-label>Ir a Página Menu</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<!-- Los tabs actúan como contenido principal -->
+<ion-tabs id="main-content">
+
+  <!-- Tab 1: Contenido con menú hamburguesa -->
+  <ion-tab tab="tab1">
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-menu-button menu="tab-menu-menu"></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Tab 1</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <h2>Tab 1 con menú</h2>
+      <p>Tap el botón del menú para abrir el drawer.</p>
+    </ion-content>
+  </ion-tab>
+
+  <!-- Tab 2: Otro contenido -->
+  <ion-tab tab="tab2">
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-menu-button menu="tab-menu-menu"></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Tab 2</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <h2>Tab 2</h2>
+      <p>También con acceso al menú.</p>
+    </ion-content>
+  </ion-tab>
+
+  <!-- La barra de tabs -->
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="tab1">
+      <ion-icon name="home"></ion-icon>
+      <ion-label>Tab 1</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="tab2">
+      <ion-icon name="settings"></ion-icon>
+      <ion-label>Tab 2</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+
+</ion-tabs>
