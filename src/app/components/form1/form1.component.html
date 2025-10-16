@@ -1,0 +1,24 @@
+<ion-input [formControl]="name">Ingres Nombre(maximo 25 caracters)</ion-input>
+@if (name.hasError('minlength')){
+  <p>ingres mas caracteres</p>
+}@else if(name.hasError('maxlength')){
+  <p>ingres menos caracteres</p>
+}
+<ion-input [formControl]="age">Ingres una edad entre 18-75</ion-input>
+@if (age.invalid){
+  <p>No permitido</p>
+}
+<ion-input [formControl]="email">Ingres un correo</ion-input>
+@if (email.hasError('email')){
+  <p>Correo no valido</p>
+}
+
+<ion-input [formControl]="password" type="password">Ingres una contraseña</ion-input>
+@if (password.hasError('pattern')){
+  <p>Contraseña no valida</p>
+}
+<ion-item>
+  <ion-label>Acepta</ion-label>
+  <ion-checkbox [formControl]="check"></ion-checkbox>
+  {{check.value}}
+</ion-item>

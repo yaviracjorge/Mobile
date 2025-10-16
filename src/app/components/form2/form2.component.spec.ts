@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { Count2Component } from './count2.component';
+import { Form2Component } from './form2.component';
 
-describe('Count2Component', () => {
-  let component: Count2Component;
-  let fixture: ComponentFixture<Count2Component>;
+describe('Form2Component', () => {
+  let component: Form2Component;
+  let fixture: ComponentFixture<Form2Component>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ Count2Component ],
+      declarations: [ Form2Component ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(Count2Component);
+    fixture = TestBed.createComponent(Form2Component);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

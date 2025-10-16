@@ -1,0 +1,92 @@
+<form [formGroup]="formGroup">
+  <ion-list>
+    <ion-item>
+      <ion-input
+        label="Correo"
+        labelPlacement="stacked"
+        formControlName="email"
+        type="email"
+        placeholder="tu@gmail.com">
+      </ion-input>
+      @if (email?.invalid && email?.touched) {
+        <ion-text color="danger">
+          @if (email?.hasError('required')) {
+            <p>El correo es obligatorio.</p>
+          }
+          @if (email?.hasError('pattern')) {
+            <p>Debe ser un correo gmail.com o hotmail.com.</p>
+          }
+        </ion-text>
+      }
+    </ion-item>
+    <ion-item>
+      <ion-input
+        label="Contraseña"
+        labelPlacement="stacked"
+        formControlName="password"
+        type="password">
+      </ion-input>
+      @if (password?.invalid && password?.touched) {
+        <ion-text color="danger">
+          @if (password?.hasError('minlength')) {
+            <p>Mínimo 5 caracteres.</p>
+          }
+          @if (password?.hasError('maxlength')) {
+            <p>Máximo 10 caracteres.</p>
+          }
+        </ion-text>
+      }
+    </ion-item>
+    <ion-item>
+      <ion-input
+        label="Dirección"
+        labelPlacement="stacked"
+        formControlName="address">
+      </ion-input>
+      @if (address?.invalid && address?.touched) {
+        <ion-text color="danger">
+          @if (address?.hasError('required')) {
+            <p>La dirección es obligatoria.</p>
+          }
+          @if (address?.hasError('minlength')) {
+            <p>Mínimo 10 caracteres.</p>
+          }
+          @if (address?.hasError('maxlength')) {
+            <p>Máximo 50 caracteres.</p>
+          }
+        </ion-text>
+      }
+    </ion-item>
+
+    <ion-item>
+      <ion-input
+        label="Crédito"
+        labelPlacement="stacked"
+        formControlName="credit"
+        type="number">
+      </ion-input>
+      @if (credit?.invalid && credit?.touched) {
+        <ion-text color="danger">
+          @if (credit?.hasError('min')) {
+            <p>El mínimo es 0.01.</p>
+          }
+          @if (credit?.hasError('max')) {
+            <p>El máximo es 100.</p>
+          }
+        </ion-text>
+      }
+    </ion-item>
+
+    <ion-item>
+      <ion-checkbox formControlName="check" slot="start"></ion-checkbox>
+      <ion-label>Acepto los términos y condiciones</ion-label>
+      @if (check?.invalid && check?.touched) {
+        <ion-text color="danger" slot="end">
+          <p>Debes aceptar.</p>
+        </ion-text>
+      }
+    </ion-item>
+
+  </ion-list>
+
+</form>
