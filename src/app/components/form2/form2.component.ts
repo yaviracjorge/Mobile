@@ -29,7 +29,7 @@ export class Form2Component  implements OnInit {
     check: new FormControl(false,[Validators.requiredTrue])
   })
 
-  get email() { return this.formGroup.get('email'); }
+  get email() { return this.formGroup.controls['email']; }
   get password() { return this.formGroup.get('password'); }
   get address() { return this.formGroup.get('address'); }
   get credit() { return this.formGroup.get('credit'); }

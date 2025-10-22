@@ -1,0 +1,50 @@
+<body>
+  <form [formGroup]="form">
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating">Ingrese su email</ion-label>
+        <ion-input  formControlName="email"></ion-input>
+        @if (email.touched && email.invalid) {
+          @if (email.hasError('required')) {
+            <small>El campo es requerido</small>
+          } @else if (email.hasError('email')) {
+            <small>Use un correo válido</small>
+          } @else if (email.hasError('pattern')) {
+            <small>El correo debe ser (gmail/hotmail) y terminar con (com/es)</small>
+          }
+        }
+
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Ingrese su contraseña</ion-label>
+        <ion-input  formControlName="password"></ion-input>
+        @if(password.touched && password.invalid){
+          @if (password.hasError('required')){
+            <small>Campo Requerido</small>
+          }
+          @if(password.hasError('minlength')){
+            <small>minimo 6 caracteres</small>
+          }
+          @if(password.hasError('maxlength')){
+            <small>maximo 10 caracteres</small>
+          }
+          @if(password.hasError('notSpecialChart')){
+            <small>necista un caracter espcial</small>
+          }
+        }
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Repita su contraseña</ion-label>
+        <ion-input formControlName="confirmPassword"></ion-input>
+        @if(confirmPassword.touched){
+          @if (form.hasError('notEqual')){
+            <small>no soniguales </small>
+          }
+        }
+
+      </ion-item>
+    </ion-list>
+  </form>
+</body>

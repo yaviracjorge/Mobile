@@ -16,13 +16,14 @@ import {chevronDownOutline, chevronUpOutline} from "ionicons/icons";
 import {CountService} from "../../services/count-service";
 import {Form2Component} from "../../components/form2/form2.component";
 import {Form1Component} from "../../components/form1/form1.component";
+import {Form3Component} from "../../components/form3/form3.component";
 
 @Component({
   selector: 'app-index',
   templateUrl: './index.page.html',
   styleUrls: ['./index.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonIcon, IonList, IonButton, Form2Component, Form1Component, IonItem]
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonIcon, IonList, IonButton, Form2Component, Form1Component, IonItem, Form3Component]
 })
 export class IndexPage implements OnInit {
   countService = inject(CountService);

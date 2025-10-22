@@ -8,12 +8,12 @@
         type="email"
         placeholder="tu@gmail.com">
       </ion-input>
-      @if (email?.invalid && email?.touched) {
+      @if (email.invalid && email?.touched) {
         <ion-text color="danger">
-          @if (email?.hasError('required')) {
+          @if (email.hasError('required')) {
             <p>El correo es obligatorio.</p>
           }
-          @if (email?.hasError('pattern')) {
+          @if (email.hasError('pattern')) {
             <p>Debe ser un correo gmail.com o hotmail.com.</p>
           }
         </ion-text>
