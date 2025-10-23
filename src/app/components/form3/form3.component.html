@@ -1,4 +1,4 @@
-<body>
+
   <form [formGroup]="form">
     <ion-list>
       <ion-item>
@@ -8,9 +8,11 @@
           @if (email.hasError('required')) {
             <small>El campo es requerido</small>
           } @else if (email.hasError('email')) {
-            <small>Use un correo válido</small>
-          } @else if (email.hasError('pattern')) {
+            <small>Use un formato valido nombre&#64;gmail.com</small>
+          } @else if (email.hasError('notDomain')) {
             <small>El correo debe ser (gmail/hotmail) y terminar con (com/es)</small>
+          } @else if (email.hasError('notChart')){
+            <small>Use un formato valido nombre123&#64;gmail.com</small>
           }
         }
 
@@ -18,10 +20,11 @@
 
       <ion-item>
         <ion-label position="floating">Ingrese su contraseña</ion-label>
-        <ion-input  formControlName="password"></ion-input>
+        <ion-input  formControlName="password" labelPlacement="stacked"></ion-input>
         @if(password.touched && password.invalid){
           @if (password.hasError('required')){
-            <small>Campo Requerido</small>
+            <ion-text color="danger">Campo Requerido</ion-text>
+
           }
           @if(password.hasError('minlength')){
             <small>minimo 6 caracteres</small>
@@ -30,7 +33,7 @@
             <small>maximo 10 caracteres</small>
           }
           @if(password.hasError('notSpecialChart')){
-            <small>necista un caracter espcial</small>
+            <small>necesita un caracter especial</small>
           }
         }
       </ion-item>
@@ -40,11 +43,19 @@
         <ion-input formControlName="confirmPassword"></ion-input>
         @if(confirmPassword.touched){
           @if (form.hasError('notEqual')){
-            <small>no soniguales </small>
+            <ion-text color="danger">
+              no son iguales </ion-text>
           }
         }
 
       </ion-item>
+      <ion-item>
+        <ion-button
+          [disabled] = "form.invalid"
+          shape="round">
+          Enviar</ion-button>
+      </ion-item>
     </ion-list>
+    {{Error}}
   </form>
-</body>
+
